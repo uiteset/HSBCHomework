@@ -1,0 +1,184 @@
+添加用户
+http://{{url}}:8080/user/add
+POST
+BODY:
+{
+    "username": "username", --用户名, 全系统唯一
+    "password": "password"  --密码
+}
+RESPONSE:
+{
+    "errorCode": 0,
+    "errorMessage": "success",
+    "data": null
+}
+
+删除用户
+http://{{url}}:8080/user/delete
+POST
+BODY:
+{
+    "username": "username"
+}
+RESPONSE:
+{
+    "errorCode": 0,
+    "errorMessage": "success",
+    "data": null
+}
+
+获取用户
+http://{{url}}:8080/user/get
+POST
+BODY:
+{
+    "username": "username"
+}
+RESPONSE:
+{
+    "errorCode": 0,
+    "errorMessage": "success",
+    "data": {
+        "username": "username",
+        "password": "password"
+    }
+}
+
+添加角色
+http://{{url}}:8080/role/add
+POST
+BODY:
+{
+    "roleCode": "roleCode",
+    "roleName": "roleName"
+}
+RESPONSE:
+{
+    "errorCode": 0,
+    "errorMessage": "success",
+    "data": null
+}
+
+删除角色
+http://{{url}}:8080/role/delete
+POST
+BODY:
+{
+    "roleCode": "roleCode"
+}
+RESPONSE:
+{
+    "errorCode": 0,
+    "errorMessage": "success",
+    "data": null
+}
+
+获取角色
+http://{{url}}:8080/role/get
+POST
+BODY:
+{
+    "roleCode": "roleCode"
+}
+RESPONSE:
+{
+    "errorCode": 0,
+    "errorMessage": "success",
+    "data": {
+        "roleCode": "roleCode",
+        "roleName": "roleName"
+    }
+}
+
+添加用户角色关系
+http://{{url}}:8080/userRole/add
+POST
+BODY:
+{
+    "roleCode": "roleCode",
+    "username": "username"
+}
+RESPONSE:
+{
+    "errorCode": 0,
+    "errorMessage": "success",
+    "data": null
+}
+
+删除用户角色关系
+http://{{url}}:8080/userRole/delete
+POST
+BODY:
+{
+    "roleCode": "roleCode",
+    "username": "username"
+}
+RESPONSE:
+{
+    "errorCode": 0,
+    "errorMessage": "success",
+    "data": null
+}
+
+权限获取token
+http://{{url}}:8080/auth/doAuth
+POST
+BODY:
+{
+    "username": "username",
+    "password": "password"
+}
+RESPONSE:
+{
+    "errorCode": 0,
+    "errorMessage": "success",
+    "data": "7545253556561###emanresu"
+}
+
+注销token
+http://{{url}}:8080/auth/invalidate
+POST
+BODY:
+{
+    "token": "7545253556561###emanresu"
+}
+RESPONSE:
+{
+    "errorCode": 0,
+    "errorMessage": "success",
+    "data": null
+}
+
+查看一个用户是否有某角色
+http://{{url}}:8080/userRole/check
+POST
+BODY:
+{
+    "roleCode": "roleCode",
+    "username": "username",
+    "token": "8581163556561###emanresu"
+}
+RESPONSE:
+{
+    "errorCode": 0,
+    "errorMessage": "success",
+    "data": false
+}
+
+查看一个用户所有的角色
+http://{{url}}:8080/userRole/allRoles
+POST
+BODY:
+{
+    "roleCode": "roleCode",
+    "username": "username",
+    "token": "8581163556561###emanresu"
+}
+RESPONSE:
+{
+    "errorCode": 0,
+    "errorMessage": "success",
+    "data": [
+        "roleCode"
+    ]
+}
